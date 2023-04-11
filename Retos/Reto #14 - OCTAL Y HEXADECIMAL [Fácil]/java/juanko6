@@ -1,0 +1,85 @@
+
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author juank
+ */
+ 
+public class Reto14 {
+    String coci;
+    int deci, bin;
+    ArrayList<Integer> binario = new ArrayList<>();
+    ArrayList<Integer> octa = new ArrayList<>();
+    ArrayList<String> hexa = new ArrayList<>();
+
+    public int recibir() {
+        deci = Integer.parseInt(JOptionPane.showInputDialog("Ingrese un numero decimal para convertir en octa y hexa"));
+        System.out.println(deci);
+        return deci;
+    }
+
+    public void binario() {
+        int abin = deci;
+        while (abin > 0) {
+            int residuo = abin % 2;
+            abin = abin / 2;
+            binario.add(0, residuo);
+
+        }
+        System.out.println(deci + " en binario es: " + binario);
+    }
+
+    public void octa() {
+        int aocta = deci;
+        while (aocta > 0) {
+            int cociente = aocta % 8;
+            aocta = aocta / 8;
+            octa.add(0, cociente);
+
+        }
+        System.out.println(deci + " en octal es: " + octa);
+    }
+
+    public void hexa() {
+        int ahexa = deci;
+        while (ahexa > 0) {
+            int cociente = ahexa % 16;
+            ahexa = ahexa / 16;
+            
+            switch(cociente){
+                case 0 -> coci = "0";
+                case 1 -> coci = "1";
+                case 2 -> coci = "2";
+                case 3 -> coci = "3";
+                case 4 -> coci = "4";
+                case 5 -> coci = "5";
+                case 6 -> coci = "6";
+                case 7 -> coci = "7";
+                case 8 -> coci = "8";
+                case 9 -> coci = "9";
+                case 10 -> coci = "A";
+                case 11 -> coci = "B";
+                case 12 -> coci = "C";
+                case 13 -> coci = "D";
+                case 14 -> coci = "E";
+                case 15 -> coci = "F";
+            }
+            
+            hexa.add(0, coci);
+
+        }
+        System.out.println(deci + " en hexadecimal es: " + hexa);
+    }
+
+    public static void main(String[] args) {
+        Reto14 r14 = new Reto14();
+        r14.recibir();
+        r14.binario();
+        r14.octa();
+        r14.hexa();
+
+    }
+
+}
